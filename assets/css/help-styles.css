@@ -89,10 +89,14 @@ h1 {
 
 /* Clase para desplegar la respuesta */
 .faq__item.activo .answer {
-    max-height: 360px; /* Ajusta según la respuesta mas larga */
+    max-height: 380px; /* Ajusta según la respuesta mas larga */
     padding: 0 20px 15px;
 }
 
+/* Estilos para el correo de contacto */
+em {
+    font-weight: bold;
+}
 
 
 
