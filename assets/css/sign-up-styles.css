@@ -1,0 +1,371 @@
+/* --- GENERAL STYLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+:root {
+    --main-color: #3564CA;
+    --secundary-color: #E3E7F0;
+    --white: #f8f9fa;;
+    --highlither: #5A80D3;
+    --hover-color: #cfe8f8;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background: url(../img/photos/wall.jpg) no-repeat top/cover;
+}
+
+
+
+
+/* --- MAIN STYLES --- */
+main {
+    flex-grow: 1;
+    background-color: #35353569;
+}
+
+
+/* Ventana de diálogo */
+.dialog-window {
+    background-color: rgb(227, 231, 240);
+    width: 33%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.dialog-window__header {
+    background-color: var(--main-color);
+    border-radius: 10px 10px 0 0;
+    padding: 1em 0;
+}
+.dialog__title {
+    color: aliceblue;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: .3em;
+}
+.dialog__link {
+    color: rgba(240, 248, 255, 0.76);
+    display: block;
+    width: fit-content;
+    margin: .5em auto 0em;
+    font-size: .8em;
+    text-decoration: none;
+}
+.dialog__link:hover {
+    text-decoration: underline;
+}
+.buttons-wrapper {
+    display: flex;
+    margin: 2em auto 1.8em;
+    width: 90%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+#student-button, #professor-button {
+    border-radius: 6px;
+    border: none;
+    flex-basis: 150px;
+    padding: 10px 8px;
+    font-weight: bold;
+    font-size: .9em;
+    background-color: #45af60;
+    color: aliceblue;
+    transition: background-color .1s ease-in-out;
+}
+#student-button:hover, #professor-button:hover {
+    cursor: pointer;
+    background-color: #2c9647;
+}
+
+
+
+/* Mensaje para el Docente */
+.professor-message {
+    background-color: rgb(227, 231, 240);
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.professor-message__header {
+    background-color: var(--main-color);
+    border-radius: 10px 10px 0 0;
+    padding: 1em 0;
+}
+.professor__title {
+    color: aliceblue;
+    text-align: center;
+    padding: 0 1em;
+    font-size: 1.6em;
+    margin-bottom: .5em;
+}
+.professor__link {
+    color: rgba(240, 248, 255, 0.76);
+    display: block;
+    width: fit-content;
+    margin: .5em auto 0em;
+    font-size: .8em;
+    text-decoration: none;
+}
+.professor__link:hover {
+    text-decoration: underline;
+}
+.professor-message__description {
+    padding: .5em 1.7em 1em;
+    text-align: justify;
+    font-size: .9em;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+.professor-message__description p, .professor-message__description li {
+    padding: 10px 0;
+    margin: 0;
+    color: #555;
+}
+.professor-message__description li {margin-left: 25px;}
+
+
+
+/* Formulario */
+.sign-up {
+    background-color: rgb(227, 231, 240);
+    width: 33%;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.sign-up__header {
+    background-color: var(--main-color);
+    border-radius: 10px 10px 0 0;
+    padding: .9rem 0;
+}
+.header__logo {
+    display: block;
+    width: 4em;
+    margin: 0 auto .4rem;
+}
+.header__title {
+    color: aliceblue;
+    text-align: center;
+    font-size: 1.9em;
+}
+.header__link {
+    color: rgba(240, 248, 255, 0.76);
+    display: block;
+    width: fit-content;
+    margin: .5em auto 0em;
+    font-size: .85em;
+    text-decoration: none;
+}
+.header__link:hover {
+    text-decoration: underline;
+}
+
+
+.sign-up__inputs-container {
+    width: 87%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+label, .gender-indication {
+    display: block;
+    margin: 22px 0 6px;
+    color: #333;
+}
+        
+.input__field, .gender__option {
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: .95em;
+    transition: border-color 0.3s;
+}
+
+/* Ajusta el padding de los select para no romper el layout */
+select.input-field {padding: 10px 6px 10px 10px;}
+        
+.input__field:focus {
+    outline: none;
+    border-color: var(--highlither);
+    box-shadow: 0 0 0 2px rgba(75, 108, 183, 0.2);
+}
+
+
+/* Estilos para el género */
+.gender__wrapper {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+}
+
+.gender__option {
+    background-color: white;
+}
+
+.gender__option > label {
+    margin: 0;
+    display: inline-block; 
+    color: black;
+    padding-left: 4px;
+}
+
+
+/* Estilos para la contrasena */
+.password-wrapper {position: relative;}
+
+.password-wrapper > .input-field {
+    padding: 12px 37px 12px 15px; /* Los 35px evitan que toque el icono */
+}
+
+.password-eye {
+    position: absolute;
+    right: 9px;
+    top: 52%;
+    transform: translateY(-52%);
+    color: #666;
+}
+
+.fa-eye {right: 10px;} /* Corrige el centrado del ojo cuando esta abierto */
+
+.password-eye:hover {
+    cursor: pointer;
+    color: #8d8b8b;
+}
+
+
+.form-button {
+    display: block;
+    border-radius: 6px;
+    border: none;
+    width: 87%;
+    padding: 12px 10px;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #37b958;
+    color: aliceblue;
+    margin: 1.7em auto;
+    transition: background-color .1s ease-in-out;
+}
+
+.form-button:hover {
+    cursor: pointer;
+    background-color: #2c9647;
+}
+
+
+/* Enlace al sign-in */
+.sign-in-wrapper {
+    display: flex;
+    font-size: .76em;
+    gap: 5px;
+    justify-content: center;
+    color: rgb(39, 39, 39);
+    margin-bottom: .5em;
+}
+
+.sign-in__link {
+    color: var(--highlither);
+    text-decoration: none;
+}
+
+.sign-in__link:hover {text-decoration: underline;}
+
+
+/* --- Mensajes --- */
+.error-message {
+    position: absolute;
+    top: .2em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffe6e6;
+    color: #a10000;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border: 1px solid #a10000;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- MAIN SECTION --- */
+
+    /* Ventana de diálogo */
+    .dialog-window {
+        width: 85%;
+    }
+
+
+
+    /* Mensaje para el Docente */
+    .professor-message {
+        width: 85%;
+        margin: 50px auto 100px;
+        position: static;         /* Valor por defecto */
+        top: auto;                /* Ignora top */
+        left: auto;               /* Ignora left */
+        transform: none;          /* Elimina cualquier transformación */
+    }
+    .professor-message__header {
+        padding: .5em 0;
+    }
+    .professor__title {
+        padding: 0 .5em;
+        font-size: 1.5em;
+        margin-bottom: .5em;
+    }
+    .professor-message__description {
+        padding: .5em 1em 1em;
+        font-size: .9em;
+    }
+    .professor-message__description li {margin-left: 1.2em;}
+
+
+
+    /* Formulario de registro */
+    .sign-up {width: 85%;}
+    .sign-in__header {padding: .5em 0;}
+    .header__logo {margin-bottom: 0 auto .3em;}
+    .header__title {font-size: 1.6em;}
+
+    /* Ajusta el margen y padding de los elementos para ver más información en pantalla */
+    label {margin: 20px 0 5px;}
+
+    .input__field, .gender__option {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+
+    select.input__field {
+        padding: 8px 5px;
+        font-size: .95em;
+    }
+}
+
+
+

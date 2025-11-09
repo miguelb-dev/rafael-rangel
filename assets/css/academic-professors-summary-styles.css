@@ -1,0 +1,120 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+/* * Cambio del fondo para cada pagina */
+body[data-page-type="academic-summary"] > .layout {
+    background: url(../img/backgrounds/pencils.jpg) no-repeat center/cover;
+}
+body[data-page-type="professors-summary"] > .layout {
+    background: url(../img/backgrounds/desk.jpg) no-repeat center/cover;
+}
+
+
+
+
+/* --- MAIN SECTION --- */
+main {
+    flex-grow: 1;
+    background-color: #3f404169;
+}
+
+.main__title {
+    color: aliceblue;
+    background-color: var(--main-color);
+    width: fit-content;
+    font-size: clamp(18px, 2.8dvw, 23px);
+    padding: .4em .9em;
+    display: block;
+    border-radius: 6px;
+    margin: 40px 15% 40px;
+}
+
+/* Estilos de la tabla */
+.table {
+    width: 85%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden; /* Para evitar que el borde redondo rompa */
+    margin: auto;
+    margin-bottom: 150px;
+    font-size: clamp(10px, 1.2dvw, 15px);
+}
+
+.table th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.table thead tr:last-child th {background-color: #506a88;}
+
+.table th {
+    font-weight: bold;
+    text-align: center;
+    word-break: break-word; /* Rompe palabras largas */
+    white-space: normal;    /* Permite múltiples líneas */
+}
+
+
+/* Estilos para separacion visual entre filas y hover */
+.table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+.table tbody tr:nth-child(even) {
+    background-color: #c8d3d2;
+}
+
+.table tbody tr:hover {
+    background-color: var(--hover-color);
+    transition: background-color 0.3s;
+}
+
+
+/* * Cambios para la tabla de academic-summary */
+#academic-table th, #academic-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+/* * Cambios para la tabla de professors-summary */
+#professors-table th, #professors-table td {
+    padding: .8em 1em;
+    text-align: center;
+    word-break: break-word; /* Rompe palabras largas */
+    white-space: normal;    /* Permite múltiples líneas */
+}
+
+
+/* Datos de contacto */
+.email {color: #2980b9;}
+.telephone {color: #16a085;}
+
+/* Notas e inasistencias */
+.passing-grade { color: #27ae60; font-weight: bold; }
+.failed-grade { color: #e74c3c; font-weight: bold; }
+.absences { color: #f39c12; font-weight: bold; }
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- MAIN SECTION --- */
+    .main__title {margin: 40px auto;}
+
+    .table {
+        width: 90%;
+        margin-bottom: 100px;
+    }
+
+    /* Adapta el tamaño de las casillas los lapsos para evitar que rompa el layout */
+    #academic-table thead > tr:nth-child(2) > th {
+        padding: 12px 5px;
+        font-size: .8em;
+    }
+
+    /* Adapta el tamaño de las casillas de correo y telefono para evitar que rompa el layout */
+    #professors-table thead > tr:nth-child(2) > th {padding: 12px 5px;}
+}

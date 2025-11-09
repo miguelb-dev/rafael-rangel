@@ -1,0 +1,223 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background: url(../img/backgrounds/calendar.jpg) no-repeat center/cover;
+}
+
+
+
+
+/* --- MAIN SECTION --- */
+main {
+    flex-grow: 1;
+    background-color: #3f404169;
+}
+
+.main__title {
+    color: aliceblue;
+    background-color: var(--main-color);
+    width: fit-content;
+    font-size: clamp(18px, 2.8dvw, 23px);
+    padding: .4em .9em;
+    border-radius: 6px;
+    margin: 40px 15% 30px;
+}
+
+
+
+/** Estilos únicos para el usuario profesor y admin */
+.main-title-container {
+    display: flex;
+    margin: 40px 15% 30px;
+    justify-content: space-between;
+}
+
+.main__title-admin, .main__title-professor {
+    color: aliceblue;
+    background-color: var(--main-color);
+    width: fit-content;
+    font-size: clamp(18px, 2.8dvw, 23px);
+    padding: .4em .9em;
+    border-radius: 6px;
+    margin: 0;
+}
+
+.link-container {
+    background-color: aliceblue;
+    display: inline;
+    padding: .4em .8em .3em .6em;
+    border-radius: 6px;
+}
+
+.events-management-link {
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.events-management-link:hover {
+    text-decoration: underline;
+}
+
+i {
+    color: #e4e4e4;
+    background-color: var(--main-color);
+    padding: .5em;
+    border-radius: 50%;
+    margin-right: .5em;
+}
+
+
+
+.legend-container {
+    margin: auto;
+    background-color: aliceblue;
+    padding: .5em;
+    width: fit-content;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.151);
+
+    display: flex;
+    justify-content: center;
+    gap: 10px 40px;
+}
+
+.item__color-red, .item__color-green  {
+    width: 20px;
+    height: 11px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.item__color-red {background-color: #d33636;}
+
+.item__color-green {background-color: #28c55c;}
+
+.item__day {
+    font-size: 1em;
+    display: inline-block;
+}
+
+
+/* Calendario */
+.calendar-container {
+    margin: 20px auto 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.month {
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 6px;
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.151);
+    overflow: hidden; /* Evita que el fondo de color del nombre del mes rompa */
+    transition: box-shadow .15s;
+}
+
+.month:hover {
+    box-shadow: 0px 12px 16px -5px rgba(0, 0, 0, 0.226);
+}
+
+.month__title {
+    padding: 5px 0;
+    font-size: 1.35em;
+    background-color: var(--main-color);
+    color: aliceblue;
+}
+
+.month__days {
+    list-style: none;
+    display: grid;
+    padding: 10px 5px;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 3px;
+}
+
+.month__days li {
+    text-align: center;
+    color: #0000009a; /* Les da un color mas claro a todos los li */
+}
+
+.month__days .day-week {
+    padding-bottom: 5px;
+    font-weight: bold;
+    color: black; /* Le regresa el color negro a los li de los dias de la semana */
+}
+
+
+/* Primer dia para cada mes */
+
+.january li:nth-child(8) {grid-column-start: 4;}
+.february li:nth-child(8){grid-column-start: 7;}
+.march li:nth-child(8){grid-column-start: 7;}
+.april li:nth-child(8){grid-column-start: 3;}
+.may li:nth-child(8){grid-column-start: 5;}
+.june li:nth-child(8){grid-column-start: 1;}
+.july li:nth-child(8){grid-column-start: 3;}
+.august li:nth-child(8){grid-column-start: 6;}
+.september li:nth-child(8){grid-column-start: 2;}
+.october li:nth-child(8){grid-column-start: 4;}
+.november li:nth-child(8){grid-column-start: 7;}
+.december li:nth-child(8){grid-column-start: 2;}
+
+
+/* Días registrados */
+
+/* Estilos para el link del evento */
+.link-date {
+    color: aliceblue;
+    text-decoration: none;
+    display: block;
+}
+
+.link-date:hover {text-decoration: underline;}
+
+.non-working-day, .important-day {border-radius: 3px;}
+
+.non-working-day {background-color: #d33636;}
+.important-day {background-color: #28c55c;}
+
+.non-working-day:hover {background-color: #8b1f1f;}
+.important-day:hover {background-color: #1d8f43;}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- MAIN SECTION --- */
+    .main__title {margin: 40px auto;}
+
+    /** Estilos únicos para el usuario profesor y admin */
+    .main-title-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2em;
+    }
+    .main__title-admin, .main__title-professor {margin: auto;}
+    .link-container {padding: .4em .6em .3em .4em;}
+
+    i {padding: .45em;}
+
+
+
+    .legend-container {
+        width: 75%;
+        padding-top: 4px;
+        gap: 10px;
+    }
+
+    .item__day {font-size: 0.9em;}
+
+
+    /* Calendario */
+    .calendar-container {margin-bottom: 100px;}
+    .month__title {font-size: 1.05em;}
+}

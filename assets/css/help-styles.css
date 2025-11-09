@@ -1,0 +1,119 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+
+
+
+/* --- MAIN SECTION --- */
+main {
+    flex-grow: 1;
+    background-color: #c7c7c7;
+}
+
+h1 {
+    color: aliceblue;
+    text-align: center;
+    width: fit-content;
+    font-size: 28px;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.help-container {
+    width: 55%;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 50px auto 150px;
+}
+
+.faq-container {
+    width: 100%;
+}
+
+.faq__item {
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.question:hover {
+    background-color: var(--hover-color);
+}
+
+.question__title {
+    font-size:.95em;
+}
+
+.question__botton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--highlither);
+}
+
+.answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    text-align: justify;
+    font-size: .9em;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: white;
+}
+
+.answer p, .answer li {
+    padding: 10px 0;
+    margin: 0;
+    color: #555;
+}
+
+.answer li {margin-left: 25px;}
+
+/* Clase para desplegar la respuesta */
+.faq__item.activo .answer {
+    max-height: 360px; /* Ajusta según la respuesta mas larga */
+    padding: 0 20px 15px;
+}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- MAIN SECTION --- */
+    .help-container {
+        width: 90%;
+        padding: 20px;
+        margin-bottom: 100px;
+    }
+
+    .question__title {
+        font-size: .9em;
+        margin-right: 5px; /* Separa la pregunta del boton para la respuesta, mejora la estetica */
+    }
+
+    .question {padding: 10px 15px;}
+
+    .answer li {margin-left: 15px;}
+
+    /* Aumenta el height de la respuesta mas larga para evitar que rompa */
+    .faq__item.activo .answer {max-height: 700px;}
+}

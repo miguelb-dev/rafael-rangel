@@ -1,0 +1,74 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background: url(../img/backgrounds/calendar.jpg) no-repeat center/cover;
+}
+
+
+
+
+/* --- MAIN SECTION --- */
+main {
+    flex-grow: 1;
+    background-color: #3f404169;
+}
+
+.main__title {
+    color: aliceblue;
+    background-color: var(--main-color);
+    width: fit-content;
+    font-size: clamp(20px, 2.8dvw, 23px);
+    padding: .4em .9em;
+    display: block;
+    border-radius: 6px;
+    margin: 40px 15% 40px;
+}
+
+.event {
+    width: 80%;
+    border-radius: 6px;
+    height: fit-content;
+    background-color: aliceblue;
+    padding: 1em 32px;
+    margin: 0 auto 150px;
+}
+
+.event__title {
+    color: var(--main-color);
+    margin-bottom: .3em;
+}
+.non-working-day {color: #d33636e0;}
+.important-day {color: #1eaf4f;}
+
+/* Ajusta los margenes del icono con el texto */
+p > .fa-calendar-days {margin: 0 .3em;}
+
+.event__date {
+    color: #54595c;
+    font-size: .81em;
+    margin-bottom: 2em;
+}
+
+.event__description {
+    text-align: justify;
+    margin-bottom: .5em;
+}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- MAIN SECTION --- */
+    .main__title {
+        margin: 40px auto;
+        max-width: 90%;
+        text-align: center;
+    }
+    .event {
+        width: 90%;
+        padding: 1.5em;
+        margin-bottom: 100px;
+    }
+}

@@ -1,0 +1,443 @@
+.layout {
+    display: grid;
+    min-height: 100dvh;
+    grid-template-columns: 2fr 0.8fr;
+    grid-template-rows: min-content min-content 1fr min-content;
+    grid-template-areas: 
+        "header header"
+        "carousel aside"
+        "main aside"
+        "footer footer";
+    width: 100%; /* o max-width: 100vw */
+    background: url(../img/photos/hallway-2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+/* --- CAROUSEL --- */
+.carousel {
+    grid-area: carousel;
+    width: 75%;
+    height: 250px;
+    margin: 30px auto 0;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative; /* Para posicionar los botones/textos */
+}
+
+/* Texto de presentación */
+.welcome-container {
+    color: aliceblue;
+    text-align: center;
+    border-radius: 6px;
+    padding: 1em;
+    width: 65%;
+    display: inline;
+    background: #7070709c;
+    border: 3px #7070703d solid;
+    backdrop-filter: blur(0.9rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Asegura que esté por encima de las imágenes */
+}
+
+.welcome-container h2 {
+    font-size: clamp(2px, 2.8dvw, 21px);
+    padding-bottom: 1.5rem;
+}
+.welcome-container p {
+    font-size: clamp(1px, 2dvw, 16px);
+    padding-bottom: 0.5rem;
+}
+
+/* Imágenes del carrusel */
+.carousel ul {
+    display: flex;
+    width: 400%; /* el 400% adapta las 4 imágenes*/
+    padding: 0;
+    transition: margin-left 0.5s ease-in-out; /* Transición suave */
+}
+
+.carousel li {
+    width: 100%;
+    list-style: none;
+}
+
+.carousel img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Asegura que las imágenes mantengan sus proporciones */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.39);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 13px;
+    font-size: 18px;
+    border-radius: 50%;
+    z-index: 10; /* Asegura que esté por encima de las imágenes */
+}
+
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
+
+/* Indicadores del carrusel */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.carousel-indicators button.active {
+    background-color: white;
+}
+
+
+
+
+/* --- MAIN SECTION --- */
+main {
+    grid-area: main;
+    padding: 3em 5em;
+    margin-bottom: 120px;
+}
+
+
+
+/** Estilos únicos para el usuario profesor y admin */
+.link-container {
+    background-color: aliceblue;
+    display: block;
+    margin: auto;
+    margin-bottom: 3em;
+    text-align: center;
+    width: max-content;
+    padding: .5em 1em .5em .9em;
+    border-radius: 6px;
+}
+.posts-management-link {
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: bold;
+}
+.posts-management-link:hover {text-decoration: underline;}
+.fa-pen-to-square {
+    color: #e4e4e4;
+    background-color: var(--main-color);
+    padding: .5em;
+    border-radius: 50%;
+    margin-right: .5em;
+}
+
+
+
+.post-container {
+    margin: 15px auto;
+    display: grid;
+    width: 90%;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    grid-auto-rows: minmax(auto, 210px);
+    gap: 3em 2.2em;
+}
+
+.post {
+    background-color: aliceblue;
+    border-radius: 6px;
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.151);
+    transition:  box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 12px 16px -5px rgba(0, 0, 0, 0.226);
+}
+
+.post__link {
+    text-decoration: none;
+}
+
+.post__container-image {
+    max-width: 100%;
+    height: 65%;
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
+}
+
+.post__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post__title {
+    color: var(--main-color);
+    text-align: center;
+    font-size: clamp(14px, 2vw, 16px);
+    max-width: 100%;
+    margin-top: 0.7em;
+}
+
+
+/* Dar peso visual a la primera publicacion */
+.post:first-child {
+    grid-column: span 2;
+    height: 300px;
+    width: 90%;
+    align-self: center;
+    justify-self: center;
+}
+.post:first-child .post__container-image {
+    height: 75%;
+}
+
+/* Mensaje en caso de error al cargar las publicaciones */
+#error-post, #no-post {
+    background-color: aliceblue;
+    color: rgb(190, 53, 53);
+    font-weight: bold;
+    height: 100px;
+    width: 70%;
+    border-radius: 3px;
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.151);
+    
+    grid-column: span 2;
+    align-self: center;
+    justify-self: center;
+
+    display: flex; /* Centra el texto */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos específicos en caso de no haber publicaciones */
+#no-post {color: var(--main-color);}
+
+
+
+
+/* --- ASIDE SECTION --- */
+.extra-information {
+    grid-area: aside;
+    background-image: linear-gradient(135deg, #06448f, #105e99, #06448f);
+    border-radius: 10px;
+    margin-top: 70px;
+    height: fit-content;
+    margin-right: 4em;
+    margin-bottom: 50px;
+}
+
+.extra__image-wrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 2em auto;
+}
+
+.extra__image {
+    width: 100%;
+    transition: 0.5s ease;
+}
+
+.extra__image:hover {
+    transform: scale(1.2);
+}
+
+.extra__description {
+    text-align: justify;
+    color: aliceblue;
+    padding: 0 1.7em;
+    font-size: .9em;
+    margin-bottom: 1.1em;
+}
+
+.extra__link {
+    color: inherit;
+    margin-left: .4em;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.extra__link:hover {text-decoration: underline;}
+
+.extra__phrase {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: aliceblue;
+    font-size: 1.5em;
+    margin: 2em 0;
+}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 1fr min-content min-content;
+        grid-template-areas: 
+            "header"
+            "carousel"
+            "main"
+            "aside"
+            "footer";
+    }
+
+
+    
+
+    /* --- CAROUSEL --- */
+    .carousel {
+        width: 92%;
+        height: 150px;
+    }
+
+    .welcome-container {
+        padding: .5em 0 .3em;
+        width: 70%;
+    }
+
+    .welcome-container h2 {
+        font-size: 1em;
+        padding-bottom: .9rem;
+    }
+    .welcome-container p {
+        font-size: .8em;
+        padding-bottom: 0;
+    }
+
+    .carousel-btn {
+        background-color: rgba(0, 0, 0, 0.623);
+        padding: 2px 10px;
+        font-size: 18px;
+    }
+
+    .prev-btn {left: 10px;}
+
+    .next-btn {right: 10px;}
+
+    .carousel-indicators {
+        bottom: 3px;
+        padding: 3px 8px;
+        border-radius: 20px;
+        background-color: #41414148;
+    }
+
+    .carousel-indicators button {
+        width: 13px;
+        height: 13px;
+    }
+
+    .carousel-indicators button.active {
+        outline: 1px solid rgba(0, 0, 0, 0.479);
+    }
+
+
+
+
+    /* --- MAIN SECTION --- */
+    main {
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    /** Estilo único para el usuario profesor y admin */
+    .link-container {margin: 2.5em auto -1.5em;}
+
+
+    .post-container {
+        margin: 70px auto;
+        width: 85%;
+        grid-template-columns: 1fr;
+        gap: 2em;
+    }
+
+    /* No hacen falta estas transiciones en dispositivos móviles */
+    .post:hover {
+        transform: initial;
+        box-shadow: initial;
+    }
+
+    .post__title {
+        font-size: clamp(14px, 2vw, 16px);
+        max-width: 100%;
+        margin-top: 0.7em;
+    }
+
+    /* Se elimina el peso visual del primer post, para que todos se vean igual */
+    .post:first-child {
+        grid-column: span 1;
+        height: 210px;
+        width: 100%;
+    }
+    
+    .post:first-child .post__container-image {height: 65%;}
+    
+    /* Ajusta el tamaño del mensaje de error de las publicaciones para que no rompa */
+    #error-post {
+        grid-column: span 1;
+        width: 100%;
+    }
+
+
+    /* --- ASIDE SECTION --- */
+    .extra-information {
+        margin: 50px auto 110px;
+        width: 92%;
+    }
+
+    .extra__image-wrapper {
+        width: 110px;
+        height: 135px;
+        border-radius: initial;
+        margin: 22px 15px 3px 25px;
+        float:left;
+    }
+
+    /* Se quitan las transiciones de la imagen */
+    .extra__image {transition: initial;}
+
+    .extra__description {
+        padding: 20px 1.7em 0;
+        font-size: .9em;
+        margin-bottom: 1.1em;
+        text-align:justify;
+    }
+
+    .extra__phrase {margin: 1.5em 0;}
+}

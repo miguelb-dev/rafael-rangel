@@ -1,0 +1,112 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    background: url(../img/photos/wall_2.jpg) no-repeat center/cover;
+}
+
+
+
+
+/* --- MAIN SECTION --- */
+main {
+    flex-grow: 1;
+    background-color: #3f404169;
+}
+
+.post {
+    width: 60%;
+    border-radius: 6px;
+    height: fit-content;
+    background-color: aliceblue;
+    padding: 1em 2em 0;
+    margin: 50px auto 150px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.post__title {
+    color: var(--main-color);
+    margin-bottom: -.2em;
+}
+
+/* Ajusta los margenes del icono con el texto */
+p > .fa-calendar-days {margin: 0 .3em;}
+
+.post__date {
+    color: #54595c;
+    font-size: .81em;
+}
+
+
+.post__image-wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.post__image {
+    max-height: 14em;
+    object-fit: contain;
+    margin: 1.8em auto 2.2em;
+}
+
+.post__description {
+    text-align: justify;
+    margin-bottom: 1.5em;
+}
+
+.post__document-wrapper {
+    padding-left: 1em;
+    color: var(--main-color);
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.post__document {
+    margin-left: 2em;
+    font-weight: initial;
+    color: var(--main-color);
+}
+
+/* Le da un espacio de separación entre el último elemento y el contenedor */
+.post__document-wrapper .post__document:last-child {
+    padding-bottom: 2.3em;
+}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- MAIN SECTION --- */
+    .post {
+        width: 90%;
+        padding: 1.5em;
+        margin-bottom: 100px;
+    }
+
+    .post__image-wrapper {
+        gap: 0em;
+    }
+
+    .post__image {
+        max-height: 9em;
+        margin: 1.4em auto 1.8em;
+    }
+
+    .post__description {
+        margin-bottom: 0em;
+    }
+
+    /* Reduce el espacio de separación entre el último elemento y el contenedor */
+    .post__document-wrapper .post__document:last-child {
+        padding-bottom: 1em;
+    }
+}

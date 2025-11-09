@@ -1,0 +1,284 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;   
+}
+
+/* Cambio del fondo para cada pagina */
+body[data-page-type="event-management"] > .layout {
+    background: url(../img/backgrounds/events.jpg) no-repeat center/cover;
+}
+body[data-page-type="posts-management"] > .layout {
+    background: url(../img/backgrounds/library-2.jpg) no-repeat center/cover;
+}
+
+
+
+
+/* --- MAIN SECTION --- */
+main {
+    flex-grow: 1;
+    background-color: #3f404169;
+}
+.main__title {
+    color: aliceblue;
+    background-color: var(--main-color);
+    width: fit-content;
+    font-size: clamp(18px, 2.8dvw, 23px);
+    padding: .4em .9em;
+    display: block;
+    border-radius: 6px;
+    margin: 40px 15% 40px;
+}
+
+
+/* Formulario */
+.form {
+    width: 37%;
+    background-color: rgb(227, 231, 240);
+    border-radius: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 50px auto 150px;
+}
+.form__header {
+    background-color: var(--main-color);
+    border-radius: 10px 10px 0 0;
+    padding: 1.2rem 1.4em;
+    display: flex;
+    justify-content: space-between;
+}
+.form__title {
+    color: aliceblue;
+    text-align: justify;
+    font-size: 1.75em;
+}
+
+
+/* Botones de acción */
+.action-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: .3em;
+}
+.action-buttons-wrapper button {
+    width: 40px;
+    height: 38px;
+    border: none;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: box-shadow .1s ease-in-out;  
+}
+.action-buttons-wrapper button:hover {
+    box-shadow: 0 0 0 2px var(--hover-color);
+    cursor: pointer;
+}
+.action-buttons-wrapper i {
+    color: var(--hover-color);
+    font-size: 1.9em;
+}
+#add {font-size: .95em;}
+#edit {font-size: .7em;}
+
+/* * Estilos del Area actual */
+button.user-selection {background-color: var(--highlither);}
+
+
+/* Inputs */
+.form__inputs-container {
+    width: 88%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+label, .event-type-indication {
+    display: block;
+    margin: 22px 0 6px;
+    color: #333;
+}      
+.input__field {
+    width: 100%;
+    padding: 11px 15px;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 6px;
+    font-size: .95em;
+    transition: border-color 0.3s;
+}
+
+/* Estilos para el tipo de evento */
+.event-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+.event-type__option {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    flex-basis: 100%;
+    padding: 11px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: .95em;
+    background-color: white;
+}
+.event-type__option > label {margin: 0;}
+.event-type__option > input {accent-color: var(--main-color);}
+
+/* Estilos para el campo de descripcion */
+textarea.input__field {
+    resize: none;
+    height: 10em;
+}
+
+/* Efecto para todos los campos */
+.input__field:focus {
+    outline: none;
+    border-color: var(--highlither);
+    box-shadow: 0 0 0 2px rgba(75, 108, 183, 0.2);
+}
+
+
+/* Botones de estado */
+.status-buttons-wrapper {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    margin: 1.7em auto 1em;
+}
+.status-buttons-wrapper > button {
+    flex-basis: 6.8em;
+    border-radius: 6px;
+    border: none;
+    padding: 8px 10px;
+    font-weight: bold;
+    font-size: 1em;
+    color: aliceblue;
+    transition: background-color .1s ease-in-out;
+}
+.status-buttons-wrapper > button {cursor: pointer;}
+
+#save {background-color: #37b958;}
+#erase {background-color: #b12d2d;}
+.erase {background-color: #b12d2d !important;} /* Necesario para el botón de events-management */
+#cancel {background-color:#54595c;}
+
+#save:hover {background-color: #2c9647;}
+#erase:hover {background-color: #8f2121;}
+.erase:hover {background-color: #8f2121 !important;} /* Necesario para el botón de events-management */
+#cancel:hover {background-color:#3f4041;}
+
+
+
+/* Estilos específicos del formulario de posts-management.php */
+.preview-document {
+    display: inline-block;
+    padding: 6px 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+
+    max-width: 120px;      /* ancho máximo de la etiqueta en la tarjeta */
+    white-space: normal;   /* permite saltos de línea */
+    overflow: visible;     /* mostrar todo el contenido (no cortar) */
+    word-break: break-word;/* rompe palabras largas si es necesario */
+}
+
+/* Asegurar que las etiquetas dentro de .preview-item también se envuelvan */
+.preview-item .preview-label,
+.preview-item p.preview-document {
+    max-width: 120px;
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
+}
+
+
+/* Mantener estilos existentes (copiados desde tu CSS) */
+.preview-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preview-image {
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.preview-label {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #555;
+    text-align: center;
+    word-break: break-word;
+}
+
+.remove-button {
+    background: transparent;
+    border: none;
+    color: red;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.preview-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 120px;
+    margin: 8px;
+    text-align: center;
+}
+
+.preview-image.portada {
+    border: 2px solid #007bff;
+}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- MAIN SECTION --- */
+    /* Formulario */
+    .form {
+        width: 85%;
+        margin-bottom: 100px;
+    }
+    .form__header {padding: .8em 1em;}
+    .form__title {font-size: 1.6em;}
+    
+
+    /* Botones de accion */
+    .action-buttons-wrapper {
+        gap: .3em;
+    }
+    .action-buttons-wrapper i {
+        color: var(--hover-color);
+        font-size: 2em;
+    }
+    #add {font-size: .94em;}
+    #edit {font-size: .75em;}
+
+
+    /* Inputs */
+    /* Ajusta el margen y padding de los elementos para ver más información en pantalla */
+    label {margin: 20px 0 5px;}
+    .input__field {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+    select.input__field {
+        padding: 8px 5px;
+        font-size: .95em;
+    }
+}

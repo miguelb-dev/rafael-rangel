@@ -1,0 +1,250 @@
+/* --- GENERAL STYLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+:root {
+    --main-color: #3564CA;
+    --secundary-color: #E3E7F0;
+    --white: #f8f9fa;;
+    --highlither: #5A80D3;
+    --hover-color: #cfe8f8;
+}
+
+
+
+
+/* --- HEADER SECTION --- */
+.header {
+    grid-area: header;
+    background-image: linear-gradient(135deg, #1758a7, #1c6caa, #1758a7);
+    border-bottom: 1.5px solid rgb(35, 76, 138);
+    padding: 20px 0 12px;
+    position: sticky;
+    top: 0px;
+    z-index: 40;
+}
+
+/* Estilos del logo, título y las redes sociales */
+.header__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    position: relative;
+}
+
+.header__logo {
+    width: calc(95px + 1.2dvw);
+    object-fit: cover;
+    position: absolute;
+    padding-right: 15px;
+    margin-top: 30px;
+    right: 86%;
+}
+
+.header__title {
+    color: aliceblue;
+    text-align: center;
+    font-size: clamp(15px, 2.9dvw, 26px);
+    flex-basis: auto;
+    flex-grow: 2;
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+.header__social-media {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.social-media__li {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.social-media__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media__logo {
+    width: 2.2em;
+    height: 2.2em;
+    object-fit: cover;
+    color: white;
+    transition: transform 0.25s ease;
+}
+
+.social-media__logo:hover {transform: scale(1.1);}
+
+
+/* Barra de navegacion */
+.header__nav {
+    margin: auto;
+    width: 74%;
+    position: relative; /* Para poder ver posicionar el button del Menu Hamburguesa */
+}
+
+/* Botón hamburguesa (oculto por defecto) */
+.nav__hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    left: -15px;
+    top: -40px;
+    z-index: 30;
+}
+
+.hamburger-icon, .close-icon {
+    width: 30px;
+    height: 30px;
+    color: white;
+}
+
+/* Enlaces */
+.nav__ul {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: clamp(10px, 1.3vw, 30px);
+    padding-left: 15px; /* Evita acercarse al logo */
+}
+
+.ul__item {
+    text-align: center;
+    flex-basis: auto;
+    list-style: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.ul__link {
+    color: aliceblue;
+    text-decoration: none;
+    display: block;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.ul__link:hover {background-color: #407dc4;}
+
+
+/* Posición actual */
+#current-position {background-color: #407dc4;}
+#current-position:hover {background-color: #448fe4;}
+
+
+/* Link del Sign-in / Sign-up */
+.ul__item--sign-in {background-color: rgb(70, 69, 69);}
+.ul__item--sign-in :hover {background-color: rgb(44, 44, 44);}
+
+
+
+
+/* --- FOOTER SECTION --- */
+.footer {
+    grid-area: footer;
+    border-top: 1.5px solid rgb(27, 27, 27);
+    background-image: linear-gradient(135deg, #3f4041, #54595c, #3f4041);
+    padding: 50px 30px;
+}
+
+.footer__description {
+    color: aliceblue;
+    text-align: justify;
+    font-size: 15px;
+    padding: 2px 0;
+}
+
+.footer__description:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer__description:last-child {
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (width <= 768px) {
+    /* --- HEADER SECTION --- */
+    /* Al no haber logo, la barra de navegación puede ocupar más espacio */
+    .header__nav {width: 95%;}
+
+    /* Quitamos las redes sociales del encabezado para mantener un diseño compacto */
+    .header__social-media, .header__logo {display: none;}
+
+    /* Sin el logo y las redes, centramos el titulo del encabezado */
+    .header__title {margin: 0;}
+
+    /* Barra de navegación */
+    .nav__hamburger {display: block; /* Mostrar botón hamburguesa */}
+
+    .nav__ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 55%;
+        height: 100dvh;
+        background-color: rgba(23, 88, 167, 0.98);
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 1.8em;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        padding: 3.8em 0 0;
+    }
+    
+    .nav__ul.active {transform: translateX(0);}
+    
+    .ul__item {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        text-align: center;
+        padding: 8px 10px;
+    }
+    
+    .nav__ul.active .ul__item {opacity: 1;}
+
+    
+
+    /* --- ANIMATIONS --- */
+
+    /* Animación para los items del menú */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .nav__ul.active .ul__item {animation: fadeIn 0.3s ease forwards;}
+    
+    .nav__ul.active .ul__item:nth-child(1) { animation-delay: 0.1s; }
+    .nav__ul.active .ul__item:nth-child(2) { animation-delay: 0.2s; }
+    .nav__ul.active .ul__item:nth-child(3) { animation-delay: 0.3s; }
+    .nav__ul.active .ul__item:nth-child(4) { animation-delay: 0.4s; }
+    .nav__ul.active .ul__item:nth-child(5) { animation-delay: 0.5s; }
+    .nav__ul.active .ul__item:nth-child(6) { animation-delay: 0.6s; }
+    .nav__ul.active .ul__item:nth-child(7) { animation-delay: 0.7s; }
+    .nav__ul.active .ul__item:nth-child(8) { animation-delay: 0.8s; }
+}
