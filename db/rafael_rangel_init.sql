@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2025 a las 02:21:19
+-- Tiempo de generación: 09-11-2025 a las 18:34:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -23,6 +23,7 @@ SET time_zone = "+00:00";
 
 CREATE DATABASE IF NOT EXISTS `rafael_rangel` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `rafael_rangel`;
+
 -- --------------------------------------------------------
 
 --
@@ -47,7 +48,7 @@ CREATE TABLE `administrador` (
 --
 
 INSERT INTO `administrador` (`id_administrador`, `contrasena`, `cedula`, `nombre`, `apellido`, `fecha_nacimiento`, `genero`, `direccion`, `telefono_personal`, `email`) VALUES
-(2, '$2y$10$AkNWUbyQUUsmafcL9iUMru6QP72WAuUXRd3BDoWMTH6LLnVfibAcO', 0, 'Rafael', 'Rangel', '1980-05-12', '', 'Av. Principal, Sector Centro', '0412-1234567', 'admin@correo.com');
+(2, '$2y$10$AkNWUbyQUUsmafcL9iUMru6QP72WAuUXRd3BDoWMTH6LLnVfibAcO', 0, 'Rafael', 'Rangel', '1980-05-12', '', 'Avenida 6, con calle Río de Janeiro, sector La Plata.\r\nParroquia Juan Ignacio Montilla, municipio Valera, estado Trujillo.\r\n', '0412-1234567', 'admin@correo.com');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,13 @@ CREATE TABLE `archivo_adjunto` (
 
 INSERT INTO `archivo_adjunto` (`id_archivo_adjunto`, `id_publicacion`, `tipo`, `nombre_archivo`, `orden`) VALUES
 (128, 32, 'imagen', 'festival.jpg', 1),
-(129, 32, 'imagen', 'students.jpg', 0);
+(129, 32, 'imagen', 'students.jpg', 0),
+(134, 35, 'imagen', 'first-day.png', 1),
+(135, 36, 'imagen', 'EIpeFLUXsAAUdcb.jpg', 1),
+(136, 36, 'imagen', 'EIpeEsSXsAAekIS.jfif', 0),
+(137, 37, 'imagen', 'IMG-20211211-WA0000.jpg', 1),
+(138, 37, 'imagen', 'IMG-20211211-WA0001.jpg', 0),
+(139, 38, 'imagen', 'meeting.png', 1);
 
 -- --------------------------------------------------------
 
@@ -156,7 +163,16 @@ CREATE TABLE `calendario_escolar` (
 
 INSERT INTO `calendario_escolar` (`id_calendario`, `id_docente`, `id_administrador`, `titulo_evento`, `descripcion_evento`, `laborable`, `fecha_evento`) VALUES
 (3, NULL, 2, 'Inicio del año escolar', 'El día 15 de septiembre se realizarán las inscripciones para todos los estudiantes', 'Si', '2025-09-15'),
-(15, NULL, NULL, 'Suspensión de las actividades por fumigación', 'El día viernes 16 de mayo, se suspenden las actividades académicas por motivo de fumigación en la institución', 'No', '2025-05-16');
+(15, NULL, NULL, 'Suspensión de las actividades por fumigación', 'El día viernes 16 de mayo, se suspenden las actividades académicas por motivo de fumigación en la institución', 'No', '2025-05-16'),
+(16, NULL, 2, 'Suspensión de clases por el natalicio del Dr. José Gregorio Hernández', 'El día lunes 27 de octubre por motivo del natalicio del Dr. José Gregorio Hernández, se cancelan todas las actividades administrativas y académicas.', 'No', '2025-10-27'),
+(17, NULL, 2, 'Vacaciones', 'Las actividades académicas para todos los estudiantes, quedan suspendidas por las vacaciones de verano a partir del 11 de julio', 'No', '2025-07-11'),
+(18, NULL, 2, 'Vacaciones navideñas', 'Las actividades académicas para todos los niveles quedan suspendidas a partir del 5 de diciembre por motivos de vacaciones navideñas. El personal del Complejo Educativo Rafael Rangel les desea a todos sus estudiantes unas felices navidades', 'No', '2025-12-05'),
+(19, NULL, 2, 'Entrega de notas del segundo lapso', 'El día lunes 20 de abril se realizará la entrega de los boletines académicos pertinentes al segundo lapso del periodo escolar 2024-2025.\r\n\r\nSe realizará una reunión de padres y representantes a las 2:00pm en la cancha techada de la institución.', 'Si', '2026-04-20'),
+(20, NULL, 2, 'Entrega de notas del tercer lapso', 'El día miércoles 16 de julio se realizará la entrega de los boletines académicos pertinentes al tercer lapso del periodo escolar 2024-2025.\r\n\r\nSe realizará una reunión de padres y representantes a las 2:00pm en la cancha techada de la institución.', 'No', '2025-07-16'),
+(21, NULL, 2, 'Inicio de las actividades escolares del año 2025', 'A partir del día martes 7 de enero, arrancan todas las actividades escolares en la institución', 'Si', '2025-01-07'),
+(22, NULL, 2, 'Festividades por el día del amor y la amistad', 'El día viernes 14 de febrero se celebrarán diferentes actividades por motivo de la celebración del día del amor y la amistad.\r\n\r\nTambién se realizará entrega de refrigerios en el comedor a partir de las 10:00 am.', 'Si', '2025-02-14'),
+(23, NULL, 2, 'Suspensión de las actividades por carnaval', 'El día 3 y 4 de marzo quedan suspendidas todas las actividades académicas por motivo de la celebración del carnaval.', 'No', '2025-03-03'),
+(24, NULL, 2, 'Suspensión de las actividades por carnaval', 'El día 3 y 4 de marzo quedan suspendidas todas las actividades académicas por motivo de la celebración del carnaval.', 'No', '2025-03-04');
 
 -- --------------------------------------------------------
 
@@ -182,8 +198,7 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`id_docente`, `contrasena`, `cedula`, `nombre`, `apellido`, `fecha_nacimiento`, `genero`, `direccion`, `telefono_personal`, `email`) VALUES
-(62, '$2y$10$JGoeeOwMR7MXGliwsgoBWO10cGQUZMuPkLWZH8YhDXP67U7rWvxDa', 24000000, 'daniel', 'perez', '2025-11-01', 'Masculino', 'colina la concepcion', '04265875589', 'profesor@correo.com'),
-(67, '$2y$10$OgKGeNrXM1C.NMuO8RWyFOTlsdnpu4gf0vf1hF2kHDAs9vkaqGk5S', 11111111, 'ww', 'ww', '2025-11-01', 'Masculino', 'colina la concepcion', '04245896587', 'profesor2@correo.com');
+(62, '$2y$10$JGoeeOwMR7MXGliwsgoBWO10cGQUZMuPkLWZH8YhDXP67U7rWvxDa', 24000000, 'Alejandro', 'González', '1996-10-15', 'Masculino', 'La Beatriz', '04265875234', 'profesor@correo.com');
 
 -- --------------------------------------------------------
 
@@ -203,12 +218,11 @@ CREATE TABLE `docente_asignatura_anio_seccion` (
 --
 
 INSERT INTO `docente_asignatura_anio_seccion` (`id_docente_asignatura_anio_seccion`, `id_docente`, `id_asignatura`, `id_anio_seccion`) VALUES
-(325, 62, 4, 8),
-(328, 62, 7, 8),
-(327, 62, 9, 8),
-(326, 62, 12, 8),
-(310, 67, 3, 8),
-(309, 67, 4, 8);
+(344, 62, 3, 8),
+(340, 62, 4, 8),
+(343, 62, 7, 8),
+(342, 62, 9, 8),
+(341, 62, 12, 8);
 
 -- --------------------------------------------------------
 
@@ -236,8 +250,7 @@ CREATE TABLE `estudiante` (
 --
 
 INSERT INTO `estudiante` (`id_estudiante`, `id_anio_seccion`, `contrasena`, `cedula`, `nombre`, `apellido`, `fecha_nacimiento`, `genero`, `direccion`, `telefono_personal`, `telefono_representante`, `email`) VALUES
-(1, 5, '$2y$10$fS83Xy8SkahY2B4lJOEk3.OEyKw7OJU9ymkr6kEFgWybz8TofaCoe', 12000000, 'RAMON', 'perez', '2025-10-10', 'Masculino', 'colina la concepcion', '04265875589', '04261111111', 'jose@jose'),
-(9, 8, '$2y$10$HX8l79LPRogbuEUx8g4MdO4K299abPr/oNplkMIegqAbkxHUjw/zC', 11000000, 'daniel', 'perez', '2025-10-03', 'Masculino', 'colina la concepcion', '04265875589', '04261111111', 'estudiante@correo.com');
+(9, 8, '$2y$10$HX8l79LPRogbuEUx8g4MdO4K299abPr/oNplkMIegqAbkxHUjw/zC', 11000000, 'José', 'Pérez', '2010-06-15', 'Masculino', 'Colina la Concepción', '0426000000', '04261111111', 'estudiante@correo.com');
 
 -- --------------------------------------------------------
 
@@ -257,7 +270,7 @@ CREATE TABLE `estudiante_asignatura_anio_seccion` (
 --
 
 INSERT INTO `estudiante_asignatura_anio_seccion` (`id_estudiante_asignatura`, `id_estudiante`, `id_asignatura`, `id_anio_seccion`) VALUES
-(98, 9, 3, 8),
+(101, 9, 3, 8),
 (97, 9, 4, 8),
 (95, 9, 7, 8),
 (93, 9, 9, 8),
@@ -308,7 +321,11 @@ CREATE TABLE `publicacion` (
 --
 
 INSERT INTO `publicacion` (`id_publicacion`, `id_docente`, `id_administrador`, `titulo_publicacion`, `descripcion_publicacion`, `fecha_publicacion`) VALUES
-(32, NULL, NULL, 'Juegos de Inter-curso 2025', 'Desde el lunes 13 de octubre hasta el viernes 17, se realizarán los juegos de Inter-curso en la institución, destacando el baloncesto, fútbol, ping pong, ajedrez y el voleibol.\r\n\r\nTodos los estudiantes que quieran participar, estarán exentos de inasistencias de sus clases siempre y cuando se confirme su participación.', '2025-11-05 18:28:49');
+(32, NULL, NULL, 'Juegos de Inter-curso 2025', 'Desde el lunes 13 de octubre hasta el viernes 17, se realizarán los juegos de Inter-curso en la institución, destacando el baloncesto, fútbol, ping pong, ajedrez y el voleibol.\r\n\r\nTodos los estudiantes que quieran participar, estarán exentos de inasistencias de sus clases siempre y cuando se confirme su participación.', '2025-10-10 18:28:49'),
+(35, NULL, NULL, 'Inscripciones del año escolar 2024-2025', 'El día lunes 8 de septiembre se realizarán las inscripciones de los estudiantes regulares y de nuevo ingreso para todos los niveles.\r\n\r\nSi es estudiante de nuevo ingreso, el representante deberá llevar los siguientes requisitos: una copia de cédula de identidad del estudiante y una de un representante, copia de la partida de nacimiento y dos fotografías tipo carnet del estudiante.\r\n\r\nSi es estudiante regular, el representante solo deberá llevar una copia de cédula del estudiante', '2025-09-05 17:06:48'),
+(36, NULL, NULL, 'Feria de ciencias', 'Los días 15 y 16 de mayo se celebrarán en el pasillo principal, diferentes exposiciones y demostraciones de experimentos científicos en el pasillo principal de la institución.', '2025-05-02 17:16:29'),
+(37, NULL, NULL, 'Mantenimiento a nuestra amada casa de estudio', 'El día 18 y 19 de Abril, con la colaboración de la Alcaldía de Valera y los padres y representantes de nuestros estudiantes, se realizarán actividades de mantenimiento y recuperación de espacios en nuestra amada casa de estudio.', '2025-04-10 17:19:42'),
+(38, NULL, NULL, 'Reunión de padres y representantes', 'El día lunes 31 de marzo, se realizará una reunión de padres y representantes para socializar sobre las actividades de mantenimiento y recuperación de espacios en el complejo educativo. La hora de la reunión será a las 2:00pm', '2025-03-24 17:30:37');
 
 --
 -- Índices para tablas volcadas
@@ -417,7 +434,7 @@ ALTER TABLE `anio_seccion`
 -- AUTO_INCREMENT de la tabla `archivo_adjunto`
 --
 ALTER TABLE `archivo_adjunto`
-  MODIFY `id_archivo_adjunto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `id_archivo_adjunto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de la tabla `asignatura`
@@ -429,31 +446,31 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT de la tabla `calendario_escolar`
 --
 ALTER TABLE `calendario_escolar`
-  MODIFY `id_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT de la tabla `docente_asignatura_anio_seccion`
 --
 ALTER TABLE `docente_asignatura_anio_seccion`
-  MODIFY `id_docente_asignatura_anio_seccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
+  MODIFY `id_docente_asignatura_anio_seccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  MODIFY `id_estudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_estudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiante_asignatura_anio_seccion`
 --
 ALTER TABLE `estudiante_asignatura_anio_seccion`
-  MODIFY `id_estudiante_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id_estudiante_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT de la tabla `periodo_escolar`
@@ -465,7 +482,7 @@ ALTER TABLE `periodo_escolar`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas
