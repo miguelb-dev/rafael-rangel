@@ -1,8 +1,8 @@
-# Aplicación web para el Complejo Educativo Rafael Rangel
+# Aplicación web del Complejo Educativo Rafael Rangel
 
-Esta aplicación web para el Complejo Educativo Rafael Rangel, representa el Proyecto Socio Tecnológico (PST) del Trayecto III para el Programa Nacional de Formación en Informática (PNFI) de la Universidad Politécnica Territorial del Estado Trujillo "Mario Briceño Iragorry" (UPTTMBI).
+Esta aplicación web representa el Proyecto Socio Tecnológico (PST) del Trayecto III para el Programa Nacional de Formación en Informática (PNFI), en específico de la Universidad Politécnica Territorial del Estado Trujillo "Mario Briceño Iragorry" (UPTTMBI).
 
-El proyecto consiste en una plataforma de comunicación para el C.E Rafael Rangel, sus estudiantes, docentes, personal administrativo y cualquier miembro de su comunidad. Gestiona la información de interés, calificaciones y asistencias de los estudiantes, listado de sus profesores y asignaturas, calendario escolar y horarios.
+El proyecto consiste en una plataforma de comunicación para el Complejo Educativo Rafael Rangel, sus estudiantes, docentes, personal administrativo y cualquier miembro de su comunidad. Gestiona la información de interés, calificaciones e inasistencias de los estudiantes, listado de sus materias y docentes, calendario escolar, etc.
 
 ## Tecnología utilizadas
 
@@ -21,7 +21,7 @@ El proyecto consiste en una plataforma de comunicación para el C.E Rafael Range
 1. Clonar el repositorio:  
 
     ```bash
-    git clone https://github.com/MiguelB-dev/rafael-rangel.git
+    git clone https://github.com/miguelb-dev/rafael-rangel.git
     ```
 
 2. Ejecutar el script de inicio en la base de datos:
