@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2025 a las 18:34:01
+-- Tiempo de generación: 18-11-2025 a las 00:18:31
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,10 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `rafael_rangel`
 --
-
 CREATE DATABASE IF NOT EXISTS `rafael_rangel` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `rafael_rangel`;
-
 -- --------------------------------------------------------
 
 --
@@ -198,7 +196,17 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`id_docente`, `contrasena`, `cedula`, `nombre`, `apellido`, `fecha_nacimiento`, `genero`, `direccion`, `telefono_personal`, `email`) VALUES
-(62, '$2y$10$JGoeeOwMR7MXGliwsgoBWO10cGQUZMuPkLWZH8YhDXP67U7rWvxDa', 24000000, 'Alejandro', 'González', '1996-10-15', 'Masculino', 'La Beatriz', '04265875234', 'profesor@correo.com');
+(62, '$2y$10$JGoeeOwMR7MXGliwsgoBWO10cGQUZMuPkLWZH8YhDXP67U7rWvxDa', 24000000, 'Alejandro', 'González', '1996-10-15', 'Masculino', 'La Beatriz', '04265875234', 'profesor@correo.com'),
+(75, '$2y$10$15ZbZk1NzRZ3.9R3rlkUGebjMcvjnwJ4q7AUSwjdfg.eBf1jPZngG', 12345678, 'José Antonio', 'Pérez Ramírez', '1980-05-12', 'Masculino', 'Av. Bolívar, Valera', '04121234567', 'jose.perez@example.com'),
+(76, '$2y$10$l8GwSynIEg2.Z4Mv4DGvKeqZGT4pfLwqzXRLxZsUcj0CFu3YBKMY2', 23456789, 'María Fernanda	', 'López García	', '1985-09-20', 'Femenino', 'Calle Principal, Trujillo	', '04149876543', 'maria.lopez@example.com'),
+(77, '$2y$10$Tnx6DP3FeB5fPzcVGp3eWen/YJ.izdT/RKzX4WUJFxYiBSYay4CTy', 34567890, 'Luis Alberto	', 'Rodríguez Torres	', '1978-03-08', 'Masculino', 'Urb. La Floresta, Valera	', '04165556677', 'luis.rodriguez@example.com'),
+(78, '$2y$10$62ymDmT5jGHnASGiey4OPOcw/j3JflSe75ysHwcn/R.RX2iW3OGO6', 45678901, 'Ana Carolina	', 'Mendoza Rivas	', '1990-11-15', 'Femenino', 'Sector La Plata, Valera	', '04242233445', 'ana.mendoza@example.com'),
+(79, '$2y$10$SMxsY6a54GOEA2iYkVE1ZOnditdNkX4aGckATp6jlAgTW47qmD.Vy', 56789012, 'Pedro Enrique	', 'Salazar Díaz	', '1982-07-25', 'Masculino', 'Av. 6, Trujillo	', '04123344556', 'pedro.salazar@example.com'),
+(80, '$2y$10$PGGuCd.5/QpP9PX4SeQ/UOSzHZagQ2LwuTyYAzNbB/4Wa4SMKKi/a', 67890123, 'Carmen Julia	', 'Ramírez Peña	', '1987-01-30', 'Femenino', 'Barrio San Luis, Valera	', '04167788990', 'carmen.ramirez@example.com'),
+(81, '$2y$10$rkHJ37CmDBgHxh0EeXJq8uVWg9TYprPnuC64EFZVEmGRNXIkmmOou', 78901234, 'Rafael Eduardo	', 'Torres Pacheco	', '1975-04-18', 'Masculino', 'Av. Los Ilustres, Trujillo	', '04261122334', 'rafael.torres@example.com'),
+(82, '$2y$10$5QQUWCRB.NUKu545IuR1NuP8MM51Gsol1.9ktqXVFJuO2Nbi7XMkm', 89012345, 'Daniela Sofía	', 'Gutiérrez Morales	', '1992-12-02', 'Femenino', 'Sector La Vega, Valera	', '04129988776', 'daniela.gutierrez@example.com'),
+(83, '$2y$10$JOtI0lfTT06ppMxuAdnYPeS3zVgaQZJzbb1TUgE1laLkyy1FRDN52', 90123456, 'Jorge Luis	', 'Castillo Herrera	', '1984-06-10', 'Femenino', 'Av. 7, Trujillo	', '04145566778', 'jorge.castillo@example.com'),
+(84, '$2y$10$wuXsWU8Ug2vTBpjjs.Ix8eZMkHNqvpqIA6Yr7HBjswgSyZNMatifa', 11223344, 'Patricia Elena	', 'Suárez Villalobos	', '1989-08-22', 'Femenino', 'Urb. El Prado, Valera	', '04246677889', 'patricia.suarez@example.com');
 
 -- --------------------------------------------------------
 
@@ -222,7 +230,34 @@ INSERT INTO `docente_asignatura_anio_seccion` (`id_docente_asignatura_anio_secci
 (340, 62, 4, 8),
 (343, 62, 7, 8),
 (342, 62, 9, 8),
-(341, 62, 12, 8);
+(341, 62, 12, 8),
+(345, 75, 1, 1),
+(346, 75, 1, 5),
+(347, 75, 2, 7),
+(348, 76, 3, 2),
+(349, 76, 3, 13),
+(350, 76, 4, 6),
+(351, 77, 6, 11),
+(352, 77, 12, 15),
+(355, 78, 9, 8),
+(353, 78, 11, 3),
+(354, 78, 11, 5),
+(356, 79, 1, 10),
+(357, 79, 7, 4),
+(358, 79, 7, 9),
+(359, 80, 5, 13),
+(360, 80, 8, 4),
+(361, 80, 8, 7),
+(362, 81, 3, 5),
+(363, 81, 12, 7),
+(364, 81, 12, 14),
+(366, 82, 1, 8),
+(365, 82, 6, 6),
+(368, 83, 7, 15),
+(367, 83, 9, 11),
+(370, 84, 5, 9),
+(369, 84, 11, 4),
+(371, 84, 12, 13);
 
 -- --------------------------------------------------------
 
@@ -250,7 +285,12 @@ CREATE TABLE `estudiante` (
 --
 
 INSERT INTO `estudiante` (`id_estudiante`, `id_anio_seccion`, `contrasena`, `cedula`, `nombre`, `apellido`, `fecha_nacimiento`, `genero`, `direccion`, `telefono_personal`, `telefono_representante`, `email`) VALUES
-(9, 8, '$2y$10$HX8l79LPRogbuEUx8g4MdO4K299abPr/oNplkMIegqAbkxHUjw/zC', 11000000, 'José', 'Pérez', '2010-06-15', 'Masculino', 'Colina la Concepción', '0426000000', '04261111111', 'estudiante@correo.com');
+(9, 8, '$2y$10$HX8l79LPRogbuEUx8g4MdO4K299abPr/oNplkMIegqAbkxHUjw/zC', 11000000, 'José', 'Pérez', '2010-06-15', 'Masculino', 'Colina la Concepción', '0426000000', '04261111111', 'estudiante@correo.com'),
+(13, 1, '$2y$10$.wycSQaL9DoBt5kGn6r6qOVUVGne1o06.STQppILj74cH5rVRPE9G', 30111222, 'Andrés Miguel	', 'Ramírez López	', '2008-04-15', 'Masculino', ' Av. Bolívar, Valera', '04121112233', '04145556677', 'andres.ramirez@example.com'),
+(14, 5, '$2y$10$RghUpod3a/te1gb/g2VrGOxKEQBkcQKqWzDsfHHCrVXFHjcfpilYu', 30222333, 'Valeria Sofía	', 'Torres García	', '2007-09-20', 'Femenino', ' Urb. La Floresta, Trujillo', '04162223344', '04247788990', 'valeria.torres@example.com'),
+(15, 9, '$2y$10$g7Jl4Wm2s84ZSQtR.C6C6eAjaCzvQx/QL7YQl90dSXD5G3RRIOCOi', 30333444, 'Carlos Eduardo	', 'Pérez Mendoza	', '2006-02-10', 'Masculino', ' Sector La Vega, Valera', '04143334455', '04129988776', 'carlos.perez@example.com'),
+(16, 10, '$2y$10$O.lWVue0Q4L1H0ui6OY0muQUIV08e6jqJkDK7Tp2WuJ0H6S4VUBqm', 30444555, 'Mariana Elena	', 'Gutiérrez Rivas	', '2005-07-25', 'Femenino', ' Av. Los Ilustres, Trujillo', '04264445566', '04162233445', 'mariana.gutierrez@example.com'),
+(17, 14, '$2y$10$jdZw7qnGJb72.ShyUbjLTuH7/f1A.Z7fXE81O8AvnN/UsXFa.KHMi', 30555666, 'José Alejandro	', 'Castillo Peña	', '2004-11-12', 'Masculino', ' Urb. El Prado, Valera', '04125556677', '04246677889', 'jose.castillo@example.com');
 
 -- --------------------------------------------------------
 
@@ -270,11 +310,20 @@ CREATE TABLE `estudiante_asignatura_anio_seccion` (
 --
 
 INSERT INTO `estudiante_asignatura_anio_seccion` (`id_estudiante_asignatura`, `id_estudiante`, `id_asignatura`, `id_anio_seccion`) VALUES
+(102, 9, 1, 8),
 (101, 9, 3, 8),
 (97, 9, 4, 8),
 (95, 9, 7, 8),
 (93, 9, 9, 8),
-(92, 9, 12, 8);
+(92, 9, 12, 8),
+(103, 13, 1, 1),
+(104, 14, 1, 5),
+(106, 14, 3, 5),
+(105, 14, 11, 5),
+(108, 15, 5, 9),
+(107, 15, 7, 9),
+(109, 16, 1, 10),
+(110, 17, 12, 14);
 
 -- --------------------------------------------------------
 
@@ -299,7 +348,20 @@ CREATE TABLE `periodo_escolar` (
 --
 
 INSERT INTO `periodo_escolar` (`id_periodo_escolar`, `ciclo_escolar`, `nota_lapso1`, `nota_lapso2`, `nota_lapso3`, `inasistencia_lapso1`, `inasistencia_lapso2`, `inasistencia_lapso3`, `id_estudiante_asignatura`) VALUES
-(23, '2025-2026', 11.00, NULL, NULL, NULL, NULL, NULL, 92);
+(23, '2025-2026', 11.00, 13.00, 16.00, 7, 2, 2, 92),
+(27, '2025-2026', 15.00, 18.00, 20.00, 2, 1, 0, 103),
+(28, '2025-2026', 12.00, 16.00, 17.00, 2, 2, 2, 105),
+(29, '2025-2026', 14.00, 12.00, 20.00, 5, 4, 0, 106),
+(30, '2025-2026', 19.00, 19.00, 19.00, 0, 0, 0, 104),
+(31, '2025-2026', 20.00, 20.00, 20.00, 1, 1, 1, 97),
+(32, '2025-2026', 18.00, 19.00, 17.00, 4, 3, 7, 93),
+(33, '2025-2026', 16.00, 16.00, 16.00, 1, 2, 2, 101),
+(34, '2025-2026', 12.00, 12.00, 12.00, 12, 12, 12, 102),
+(35, '2025-2026', 20.00, 19.00, 20.00, 2, 2, 1, 95),
+(36, '2025-2026', 15.00, 14.00, 3.00, 5, 5, 17, 108),
+(37, '2025-2026', 13.00, 17.00, 15.00, 3, 2, 1, 107),
+(38, '2025-2026', 19.00, 17.00, 17.00, 4, 3, 3, 109),
+(39, '2025-2026', 18.00, 18.00, 18.00, 2, 2, 2, 110);
 
 -- --------------------------------------------------------
 
@@ -452,31 +514,31 @@ ALTER TABLE `calendario_escolar`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id_docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `docente_asignatura_anio_seccion`
 --
 ALTER TABLE `docente_asignatura_anio_seccion`
-  MODIFY `id_docente_asignatura_anio_seccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
+  MODIFY `id_docente_asignatura_anio_seccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=372;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiante`
 --
 ALTER TABLE `estudiante`
-  MODIFY `id_estudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_estudiante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiante_asignatura_anio_seccion`
 --
 ALTER TABLE `estudiante_asignatura_anio_seccion`
-  MODIFY `id_estudiante_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id_estudiante_asignatura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT de la tabla `periodo_escolar`
 --
 ALTER TABLE `periodo_escolar`
-  MODIFY `id_periodo_escolar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_periodo_escolar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `publicacion`
