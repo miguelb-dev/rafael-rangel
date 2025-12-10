@@ -6,9 +6,7 @@ El proyecto consiste en una plataforma de comunicación para el Complejo Educati
 
 ## Tecnología utilizadas
 
-- **Frontend**: HTML, CSS y JavaScript.
-- **Backend**: PHP.
-- **Base de datos**: SQL.
+PHP, CSS, JavaScript, SQL.
 
 ## Autores
 
@@ -26,7 +24,7 @@ El proyecto consiste en una plataforma de comunicación para el Complejo Educati
 
 2. Ejecutar el script de inicio en la base de datos:
 
-    [rafael-rangel.sql](db/rafael-rangel.sql)
+    [rafael_rangel.sql](db/rafael_rangel.sql)
 
 ## Cómo contribuir
 
